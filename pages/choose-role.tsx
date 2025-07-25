@@ -8,7 +8,9 @@ export default function ChooseRole() {
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
-		if (isLoaded && user?.publicMetadata?.role) {
+		if (isLoaded) {
+			console.log("Role value:", user?.publicMetadata?.role);
+
 			// If role already exists, redirect automatically
 			const role = user.publicMetadata.role;
 			if (role === "creator") router.push("/dashboard");
@@ -50,13 +52,13 @@ export default function ChooseRole() {
 					onClick={() => setRole("creator")}
 					className="px-6 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 text-white hover:scale-105 transition"
 				>
-					🎥 I’m a Creator
+					🎥 I am a Creator
 				</button>
 				<button
 					onClick={() => setRole("customer")}
 					className="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:scale-105 transition"
 				>
-					💼 I’m a Customer
+					💼 I am a Customer
 				</button>
 			</div>
 		</main>
